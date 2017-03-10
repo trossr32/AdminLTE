@@ -99,7 +99,7 @@ function disconnectFTL($quiet=true)
 	{
 		echo "Closing socket...";
 	}
-
+	socket_write($socket, ">quit", 6);
 	socket_close($socket);
 
 	if(!$quiet)
