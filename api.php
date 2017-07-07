@@ -72,6 +72,10 @@ elseif (isset($_GET['disable']) && $auth)
 	}
 	$data = array_merge($data, array("status" => "disabled"));
 }
+elseif (isset($_GET['shutdown']) && $auth)
+{
+	$pistatus = exec('sudo pihole admin shutdown');
+}
 
 // Other API functions
 if(!testFTL() && !isset($_GET["PHP"]))
