@@ -859,7 +859,31 @@ $(document).ready(function() {
     }
 });
 
-
+var map;
 $(function(){
-  $('#world-map').vectorMap({map: 'world_mill'});
+  var initialmapData = {"DE":0};
+
+  $('#world-map').vectorMap({
+    map: 'world_mill',
+    series: {
+      //this is the object for passing country/region data into
+      regions: [{
+        //define the range of color values
+        scale: ['#DEEBF7', '#08519C'],
+        //define the function that maps data to color range
+        normalizeFunction: 'linear',
+        //define the coloration method
+        attribute: 'fill',
+        //define the array of country data
+        values: initialmapData
+      }]
+    }
+  });
+  // Get map object
+  map = $('#world-map').vectorMap('get', 'mapObject');
+
+
+  map.series.regions[0].params.min = 50;
+  map.series.regions[0].params.max = 100;
+  map.series.regions[0].setValues({"DE":100,"AU":75,"US":50})
 });
