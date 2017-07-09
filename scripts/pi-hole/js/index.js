@@ -859,7 +859,6 @@ $(document).ready(function() {
     }
 });
 
-var map;
 $(function(){
   var initialmapData = {"DE":0};
 
@@ -879,11 +878,19 @@ $(function(){
       }]
     }
   });
-  // Get map object
-  map = $('#world-map').vectorMap('get', 'mapObject');
 
+  $.getJSON("api.php?getGeoIPData", function(data) {
 
-  map.series.regions[0].params.min = 50;
-  map.series.regions[0].params.max = 100;
-  map.series.regions[0].setValues({"DE":100,"AU":75,"US":50})
+      if("FTLnotrunning" in data)
+      {
+          return;
+      }
+    // Get map object
+    var map = $("#world-map").vectorMap("get", "mapObject");
+
+    map.series.regions[0].params.min = 0;
+    map.series.regions[0].params.max = data["geoIP"]["max"];
+    map.series.regions[0].setValues(data["geoIP"]);
+
+  });
 });

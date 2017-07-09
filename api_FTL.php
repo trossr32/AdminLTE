@@ -303,5 +303,21 @@ if (isset($_GET['overTimeDataQueryTypes']) && $auth)
 	$data = array_merge($data, $result);
 }
 
+if (isset($_GET['getGeoIPData']) && $auth)
+{
+	sendRequestFTL("geoIP");
+	$return = getResponseFTL();
+
+	$geoIP = array();
+	foreach($return as $line)
+	{
+		$tmp = explode(" ",$line);
+		$geoIP[$tmp[0]] = intval($tmp[1]);
+	}
+
+	$result = array('geoIP' => $geoIP);
+	$data = array_merge($data, $result);
+}
+
 disconnectFTL();
 ?>
