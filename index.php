@@ -88,6 +88,24 @@
   // show since the API will respect the privacy of the user if he defines
   // a password
   if($auth){ ?>
+
+<div class="row">
+    <div class="col-md-12">
+    <div class="box" id="map">
+        <div class="box-header with-border">
+          <h3 class="box-title">Query Types over Time</h3>
+        </div>
+        <div class="box-body">
+          <div id="world-map" style="width: 600px; height: 400px"></div>
+        </div>
+        <!-- <div class="overlay">
+          <i class="fa fa-refresh fa-spin"></i>
+        </div> -->
+        <!-- /.box-body -->
+      </div>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-md-12 col-lg-6">
     <div class="box" id="query-types-pie">
@@ -256,5 +274,9 @@ else
 <?php
     require "scripts/pi-hole/php/footer.php";
 ?>
+
+<link href="style/vendor/jquery-jvectormap-2.0.3.css" rel="stylesheet" type="text/css" />
+<script src="scripts/vendor/jquery-jvectormap-2.0.3.min.js"></script>
+<script src="scripts/vendor/jquery-jvectormap-world-mill.js"></script>
 
 <script src="scripts/pi-hole/js/index.js"></script>

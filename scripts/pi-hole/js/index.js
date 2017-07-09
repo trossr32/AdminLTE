@@ -858,3 +858,8 @@ $(document).ready(function() {
         updateForwardDestinationsPie();
     }
 });
+
+
+$(function(){
+  $('#world-map').vectorMap({map: 'world_mill'});
+});
