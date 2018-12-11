@@ -1,10 +1,11 @@
-<h3>Amendments made</h3>
+## Amendments made
+
 <ul>
   <li>Dark theme https://github.com/trossr32/PiHole-Dark applied</li>
   <li>Max width of 1250px removed to give a full width UI</li>
 </ul>
-<p></p>
 
+---
 
 <p align="center">
 <a href="https://pi-hole.net"><img src="https://pi-hole.github.io/graphics/Vortex/Vortex_with_text.png" width="150" height="255" alt="Pi-hole"></a><br/></br>
